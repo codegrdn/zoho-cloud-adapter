@@ -1,0 +1,37 @@
+version: '3'
+services:
+  # Docker CheatSheet for Troubleshooting
+  # Kill All Running Containers: docker kill $(docker ps -q)
+  # Remove All Stoped Containers: docker rm $(docker ps -a -q)
+
+  # APACHE + PHP
+  web:
+    image: 'webdevops/php-apache:7.4'
+    working_dir: '/application'
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes: &appvolumes
+      - '.:/application/:cached' # Application Code
+    environment:
+      - WEB_DOCUMENT_ROOT=/application/public
+
+  # MYSQL Database
+  mysql:
+    image: mysql:5.7
+    restart: always
+    environment:
+      - MYSQL_DATABASE=homestead
+      - MYSQL_USER=homestead
+      - MYSQL_PASSWORD=secret
+      - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+
+## Container Networks & Volumes
+volumes:
+  mysql:
+    driver: "local"

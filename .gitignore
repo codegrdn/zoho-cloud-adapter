@@ -1,0 +1,8 @@
+/vendor
+/.idea
+/logs
+Homestead.json
+Homestead.yaml
+.env
+ZCRMClientLibrary.log
+/storage/files/*

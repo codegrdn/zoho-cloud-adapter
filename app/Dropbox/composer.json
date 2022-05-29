@@ -1,0 +1,21 @@
+{
+    "name": "root/task-127",
+    "description": "Oti report",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Dev Sion",
+            "email": "sion@grodas.com.ua"
+        }
+    ],
+    "minimum-stability": "alpha",
+    "require": {
+        "kunalvarma05/dropbox-php-sdk": "^0.2.1"
+    },
+    "autoload" : {
+        "psr-4" : {
+            "app\\" : "app/",
+            "app\\traits\\" : "app/traits/"
+        }
+    }
+}

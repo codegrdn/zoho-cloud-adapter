@@ -1,0 +1,482 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/all.js"></script>
+
+
+          <script>
+        $(function() {
+            setupLanguages(["bash","javascript"]);
+        });
+      </script>
+      </head>
+
+  <body class="">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+        <img src="images/logo.png" />
+                    <div class="lang-selector">
+                                  <a href="#" data-language-name="bash">bash</a>
+                                  <a href="#" data-language-name="javascript">javascript</a>
+                            </div>
+                            <div class="search">
+              <input type="text" class="search" id="input-search" placeholder="Search">
+            </div>
+            <ul class="search-results"></ul>
+              <div id="toc">
+      </div>
+                    <ul class="toc-footer">
+                                  <li><a href='http://github.com/mpociot/documentarian'>Documentation Powered by Documentarian</a></li>
+                            </ul>
+            </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+          <!-- START_INFO -->
+<h1>Info</h1>
+<p>Welcome to the generated API reference.
+<a href="http://woo-to-inventory/docs/collection.json">Get Postman Collection</a></p>
+<!-- END_INFO -->
+<h1>general</h1>
+<!-- START_7ba029714012cd9c08cc50ae4dee9d7a -->
+<h2>Authenticate</h2>
+<p>Authenticate a user and return the token if the provided credentials are correct</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "/api/auth/login" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"email":"totam","password":"aut"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/api/auth/login");
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "email": "totam",
+    "password": "aut"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "Status": 0,
+    "token": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NSIsIm5hbWUiOiJKb2huIEdvbGQiLCJhZG1pbiI6dHJ1ZX0.LIHjWCBORSWMEibq-tnT8ue_deUqZx1K0XxCOXZRrBI"
+}</code></pre>
+<blockquote>
+<p>Example response (400):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "Status": 1,
+    "Msg": "Email does not exist."
+}</code></pre>
+<blockquote>
+<p>Example response (400):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "Status": 1,
+    "Msg": "Email or password is wrong."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /api/auth/login</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>required</td>
+</tr>
+</tbody>
+</table>
+<!-- END_7ba029714012cd9c08cc50ae4dee9d7a -->
+<!-- START_40c1a3c327efaa7eb146d563ce3ea45c -->
+<h2>Register user in portal</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "/api/auth/register_user" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"reg_token":"suscipit","name":"omnis","email":"et","password":"aspernatur","settings":"consequuntur","create_potential":false,"create_account":false,"create_products":false,"send_errors":false,"extraFieldsMapping":"blanditiis"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/api/auth/register_user");
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "reg_token": "suscipit",
+    "name": "omnis",
+    "email": "et",
+    "password": "aspernatur",
+    "settings": "consequuntur",
+    "create_potential": false,
+    "create_account": false,
+    "create_products": false,
+    "send_errors": false,
+    "extraFieldsMapping": "blanditiis"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (400):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (400):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (400):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (400):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (400):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (400):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /api/auth/register_user</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>reg_token</td>
+<td>string</td>
+<td>required</td>
+<td>token to match with env val</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td>settings</td>
+<td>json</td>
+<td>required</td>
+<td>{&quot;zoho_inventory_key&quot;: &quot;&quot;, &quot;zoho_inventory_organization_id&quot;: &quot;&quot;, &quot;zoho_crm_client_id&quot;: &quot;&quot;, &quot;zoho_crm_secret&quot;: &quot;&quot;, &quot;zoho_crm_grant_token&quot;: &quot;&quot;, &quot;zoho_crm_email&quot;: &quot;&quot;, &quot;zoho_crm_redirect_uri&quot;: &quot;&quot;} set both inventory and crm credentials or one of them</td>
+</tr>
+<tr>
+<td>create_potential</td>
+<td>boolean</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>create_account</td>
+<td>boolean</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>create_products</td>
+<td>boolean</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>send_errors</td>
+<td>boolean</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>extraFieldsMapping</td>
+<td>json</td>
+<td>optional</td>
+<td>mapping for create/update order (see this actions doc for json) actions to set values from meta_data or set them as predefined value for Contacts, Deals, Accounts, SalesOrders modules {&quot;Contacts&quot;:{&quot;Assistant&quot;:&quot;$some constant$&quot;,&quot;Asst_Phone&quot;:&quot;_aftership_tracking_number&quot;}}</td>
+</tr>
+</tbody>
+</table>
+<!-- END_40c1a3c327efaa7eb146d563ce3ea45c -->
+<!-- START_edd8e4c37fdc2c88c8070f934306bbd1 -->
+<h2>Sale order create</h2>
+<p>Create queue record that creates sale order and contact/account/deal/products in system that user setted up in registration</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "/api/order/created" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"token":"molestiae","json":"iure"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/api/order/created");
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "token": "molestiae",
+    "json": "iure"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "Status": true
+}</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "Status": false
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /api/order/created</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>token</td>
+<td>string</td>
+<td>required</td>
+<td>users jwt token</td>
+</tr>
+<tr>
+<td>json</td>
+<td>json</td>
+<td>required</td>
+<td>json from woo commerce with data</td>
+</tr>
+</tbody>
+</table>
+<!-- END_edd8e4c37fdc2c88c8070f934306bbd1 -->
+<!-- START_d362a72ac4df45db3fe5056122db0b43 -->
+<h2>Sale order update</h2>
+<p>Craete queue record that updates sale order products in system that user setted up in registration</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "/api/order/updated" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"token":"dolorem","json":"facilis"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/api/order/updated");
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "token": "dolorem",
+    "json": "facilis"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "Status": true
+}</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "Status": false
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /api/order/updated</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>token</td>
+<td>string</td>
+<td>required</td>
+<td>users jwt token</td>
+</tr>
+<tr>
+<td>json</td>
+<td>json</td>
+<td>required</td>
+<td>json from woo commerce with data</td>
+</tr>
+</tbody>
+</table>
+<!-- END_d362a72ac4df45db3fe5056122db0b43 -->
+<!-- START_81d6364ea95358acb4d22389f1a7cda7 -->
+<h2>Change status</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "/api/changeStatusLead" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"change_token":"tempore","id":17,"Status":"fuga"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/api/changeStatusLead");
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "change_token": "tempore",
+    "id": 17,
+    "Status": "fuga"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<blockquote>
+<p>Example response (400):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /api/changeStatusLead</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>change_token</td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>required</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>string</td>
+<td>required</td>
+<td>Duplicated; Converted; FTD; Not Relevant</td>
+</tr>
+</tbody>
+</table>
+<!-- END_81d6364ea95358acb4d22389f1a7cda7 -->
+      </div>
+      <div class="dark-box">
+                        <div class="lang-selector">
+                                    <a href="#" data-language-name="bash">bash</a>
+                                    <a href="#" data-language-name="javascript">javascript</a>
+                              </div>
+                </div>
+    </div>
+  </body>
+</html>
